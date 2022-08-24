@@ -1,0 +1,45 @@
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  1) // https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  2) // DP规划+hash表，dp[i]表示以i结尾的最长子串从长度dp[i]，hash表存<字符，下标>，left表示无重复子串左边界
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  3) // 当mp[s[i]]不存在时，dp[i] = dp[i-1] + 1;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  4) // 当mp[s[i]]存在时，如果left>mp[s[i]]，则dp[i] = dp[i-1] + 1;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  5) //                  否则，dp[i] = i - mp[s[i]]; 更新left = mp[s[i]] + 1;外层更新mp[s[i]] = i;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  6) class Solution {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  7) public:
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  8)     int lengthOfLongestSubstring(string s) {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800  9)         int n = s.length();
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 10)         int mx_len = 0, left = 0;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 11)         if(n == 0 || n == 1) return n;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 12)         vector<int> dp(n, 0); // 以i结尾的最长子串长度dp[i]
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 13)         unordered_map<char,int> mp; // <字符，下标>
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 14) 
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 15)         dp[0] = 1; mp[s[0]] = 0; // 初始化
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 16)         for(int i = 1; i < n; i++) {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 17)             if(mp.count(s[i]) == 0) {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 18)                 dp[i] = dp[i-1] + 1;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 19)             } else {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 20)                 if(left > mp[s[i]]) {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 21)                     dp[i] = dp[i-1] + 1;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 22)                 } else {
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 23)                     dp[i] = i - mp[s[i]];
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 24)                     left = mp[s[i]] + 1; // 必须放这
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 25)                 }
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 26)             }
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 27)             mp[s[i]] = i; // 更新
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 28)             mx_len = max(mx_len, dp[i]);
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 29)         }
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 30) 
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 31)         return mx_len;
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 32)     }
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 33) };
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 34) 
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 35) /*
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 36) "pwwkew"
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 37) "tmmzuxt"
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 38) "abcabcbb"
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 39) "blqsearxxxbiwqa"
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 40) 
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 41) 3
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 42) 5
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 43) 3
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 44) 8
+^ae37f1d (ranchoy 2022-08-22 19:31:54 +0800 45) */
