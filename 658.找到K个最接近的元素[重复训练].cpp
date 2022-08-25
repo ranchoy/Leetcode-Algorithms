@@ -4,6 +4,43 @@ class Solution {
 public:
     vector<int> findClosestElements(vector<int> &nums, int k, int x) {
         if(nums.size() <= k) return nums;
+        int len = nums.size();
+        int left = 0, right = len - k, mid;
+
+        while(left < right) {
+            mid = left + (right - left) / 2;
+            if(x - nums[mid] > nums[mid+k] - x) { // 判断mid左右边界，谁更近？
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return vector<int>(nums.begin() + left, nums.begin() + left + k);
+    }
+};
+
+/*
+[1]
+1
+1
+[0,0,1,2,3,3,4,7,7,8]
+3
+5
+[1,1,2,2,2,2,2,3,3]
+3
+3
+
+[1]
+[3,3,4]
+[2,3,3]
+*/
+
+// 本人思路
+class Solution {
+public:
+    vector<int> findClosestElements(vector<int> &nums, int k, int x) {
+        if(nums.size() <= k) return nums;
         int len = nums.size(), a, b;
         int min_idx = find_minimun_idx(nums, x, 0, len-1);
         int left = min_idx, right = min_idx;
@@ -32,23 +69,3 @@ public:
         else return find_minimun_idx(nums, x, left, mid);
     }
 };
-
-/*
-[1]
-1
-1
-[1,2,3,4,5]
-4
--1
-[0,0,1,2,3,3,4,7,7,8]
-3
-5
-[0,1,1,1,2,3,6,7,8,9]
-9
-4
-
-[1]
-[1,2,3,4]
-[3,3,4]
-[0,1,1,1,2,3,6,7,8]
-*/
