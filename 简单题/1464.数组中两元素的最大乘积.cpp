@@ -3,7 +3,7 @@
 class Solution {
 public:
     int maxProduct(vector<int> &nums) {
-        int max_val = INT_MIN, pre_val;
+        int max_val = INT_MIN, pre_val = 1;
 
         for(int i = 0; i < nums.size(); i++) {
             if(max_val <= nums[i]) {
