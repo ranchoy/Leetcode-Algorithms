@@ -4,18 +4,18 @@
 using ULL = unsigned long long;
 class Solution {
 public:
-    ULL ans = 0, sub = 0;
+    ULL res = 0, sub = 0;
     int widthOfBinaryTree(TreeNode *root) {
         vector<ULL> left_nodes;
 
         dfs(root, left_nodes, 1, 1);
-        return ans;
+        return res;
     }
 
     void dfs(TreeNode *root, vector<ULL> &nums, int level, ULL node_idx) {
         if(root == nullptr) return;
         if(level > nums.size()) nums.push_back(node_idx); // record left nodes index.
-        ans = max(ans, node_idx - nums[level-1] + 1);
+        res = max(res, node_idx - nums[level-1] + 1);
         
         if(root->left) dfs(root->left, nums, level+1, node_idx*2);
         if(root->right) dfs(root->right, nums, level+1, node_idx*2+1);
@@ -35,7 +35,7 @@ using ULL = unsigned long long;
 class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
-        ULL ans = 0, node_idx, level_min_idx;
+        ULL res = 0, node_idx, level_min_idx;
         int level = 1, cur_cnt = 0, next_cnt = 1;
         TreeNode *node = nullptr;
         queue<pair<TreeNode*, ULL>> que; // Index of nodes.
@@ -54,12 +54,12 @@ public:
             }
 
             if(cur_cnt == next_cnt) {
-                ans = max(ans, node_idx - level_min_idx + 1);
+                res = max(res, node_idx - level_min_idx + 1);
                 cur_cnt = 0; next_cnt = que.size(); level++; // update
             }
         }
 
-        return ans;
+        return res;
     }
 };
 
