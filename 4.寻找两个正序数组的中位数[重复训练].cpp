@@ -1,5 +1,5 @@
 // https://leetcode.cn/problems/median-of-two-sorted-arrays/
-// 非最优解：双指针，记录中位数附近两个数的指针。
+// 题解：双指针，记录中位数附近两个数的指针。
 class Solution {
 public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
