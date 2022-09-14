@@ -32,3 +32,9 @@ public:
         for(i = left; i <= right; i++) nums[i] = temp[i - left]; // copy
     }
 };
+
+/*
+[3,2,1]
+
+[1,2,3]
+*/
