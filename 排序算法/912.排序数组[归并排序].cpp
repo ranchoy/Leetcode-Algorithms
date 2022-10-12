@@ -11,7 +11,7 @@ public:
     void merge_sort(vector<int> &nums, int left, int right) {
         if(left >= right) return;
 
-        int mid = (left + right) >> 1;
+        int mid = (left + right) >> 1; // important!
         int i = left, j = mid + 1;
 
         // merge sorting of left and right regions.
@@ -26,7 +26,7 @@ public:
                 temp.push_back(nums[j++]);
             }
         }
-        // elements remaining
+        // elements assignment
         while(i <= mid) temp.push_back(nums[i++]);
         while(j <= right) temp.push_back(nums[j++]);
         for(i = left; i <= right; i++) nums[i] = temp[i - left]; // copy
