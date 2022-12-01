@@ -21,14 +21,14 @@ public:
         vector<int> temp;
         while(i <= mid && j <= right) {
             if(nums[i] <= nums[j]) {
-                temp.push_back(nums[i++]);
+                temp.emplace_back(nums[i++]);
             } else {
-                temp.push_back(nums[j++]);
+                temp.emplace_back(nums[j++]);
             }
         }
         // elements assignment
-        while(i <= mid) temp.push_back(nums[i++]);
-        while(j <= right) temp.push_back(nums[j++]);
+        while(i <= mid) temp.emplace_back(nums[i++]);
+        while(j <= right) temp.emplace_back(nums[j++]);
         for(i = left; i <= right; i++) nums[i] = temp[i - left]; // copy
     }
 };
