@@ -3,7 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int solve(vector<int> &nums, int k) {
+int maxLength(vector<int> &nums, int k) {
     int res = 0;
     int n = nums.size(), sum = 0;
     map<int, int> mps; // <sum,idx>
@@ -33,7 +33,7 @@ int main()
             nums.push_back(temp);
         }
         
-        len = solve(nums, k);
+        len = maxLength(nums, k);
         cout << len << endl;
     }
     
