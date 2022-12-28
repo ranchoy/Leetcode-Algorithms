@@ -1,5 +1,5 @@
 // https://leetcode.cn/problems/minimum-length-of-string-after-deleting-similar-ends/
-// 题解：双指针，注意移动left和right索引向中间移动时，最后剩下的子串为1个或2个长度的情况，前者结果为1，后者结果可能为0或2。
+// 题解：双指针，注意移动left和right索引向中间移动时，最后剩下的子串为1个或2个长度的情况，前者结果为1，后者结果为0或2。
 class Solution {
 public:
     int minimumLength(string s) {
