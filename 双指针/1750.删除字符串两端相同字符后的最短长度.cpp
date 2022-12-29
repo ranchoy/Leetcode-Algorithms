@@ -3,28 +3,20 @@
 class Solution {
 public:
     int minimumLength(string s) {
-        if(s.size() == 1) return 1;
-        int ans = 0, n = s.size();
+        int n = s.size();
         int left = 0, right = n - 1;
-        int i = left, j = right;
 
-        while(i < j) {
-            while(i < j && s[i] == s[left]) {
-                i++;
+        while(left < right && s[left] == s[right]) {
+            while(left < right - 1 && s[left] == s[left + 1]) {
+                left++;
             }
-            while(i < j && s[j] == s[right]) {
-                j--;
+            while(left < right - 1 && s[right] == s[right - 1]) {
+                right--;
             }
-
-            if(right == left + 2) return 1; // remain substr len = 1.
-            if(s[left] != s[right]) {
-                return right - left + 1;
-            }
-
-            left = i; right = j; // update
+            left++; right--;
         }
 
-        return (left == right) ? 0 : n;
+        return right - left + 1;
     }
 };
 
