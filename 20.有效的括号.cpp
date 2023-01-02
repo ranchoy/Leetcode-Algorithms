@@ -1,16 +1,16 @@
 // https://leetcode-cn.com/problems/valid-parentheses/
-// 模拟堆栈，注意入栈和出栈
+// 妯℃嫙鍫嗘爤锛屾敞鎰忓叆鏍堝拰鍑烘爤
 class Solution {
 public:
     bool isValid(string s) {
-        // 入栈出栈，最后栈不为空则不满足要求，否则满足要求
+        // 鍏ユ爤鍑烘爤锛屾渶鍚庢爤涓嶄负绌哄垯涓嶆弧瓒宠姹傦紝鍚﹀垯婊¤冻瑕佹眰
         stack<char> stk;
 
         if(s.size() == 0 || s.size()%2==1)
             return false;
         if(s[0] == ')' || s[0] == ']' || s[0] == '}')
             return false;
-        
+
         for(int i=0; i<s.size(); i++) {
             if(s[i] == '(' || s[i] == '[' || s[i] == '{') {
                 stk.push(s[i]);
