@@ -42,7 +42,6 @@ bool KMP(string s1, string s2) {
 
 int main()
 {
-
     string s1("abcabcc123"), s2("abcc");
     cout << s1 << " " << s2 << endl;
     bool is_substr = KMP(s1, s2);
