@@ -5,7 +5,7 @@ using namespace std;
 bool is_legal_sequence(vector<vector<int>> &nums) {
     int n = nums.size();
     
-    // 按照[left,right]区间小到大划分，若left相同，再比较right。
+    // 按照[left,right]区间小到大划分，先比较left，再比较right。
     sort(nums.begin(), nums.end(), [&](vector<int> &a, vector<int> &b) {
         if(a[0] != b[0]) return a[0] < b[0];
         return a[1] < b[1];
