@@ -1,6 +1,6 @@
 // https://www.nowcoder.com/questionTerminal/a4e34287fa1b41f9bd41f957efbd5dff
-// 求连续最长数组和为k的子数组长度
-// 滑动窗口，在区间[left, right]的和与k进行比较
+// 姹傝繛缁渶闀挎暟缁勫拰涓簁鐨勫瓙鏁扮粍闀垮害
+// 婊戝姩绐楀彛锛屽湪鍖洪棿[left, right]鐨勫拰涓巏杩涜姣旇緝
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -19,7 +19,7 @@ int main()
     int sum = nums[0];
     int left = 0, right = 0;
     
-    while(left <= right) { // 重要
+    while(left <= right) { // 閲嶈
         if(sum == k) {
             max_len = max(max_len, right-left+1);
             sum -= nums[left];

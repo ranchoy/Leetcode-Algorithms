@@ -1,5 +1,5 @@
 // https://www.nowcoder.com/questionTerminal/36fb0fd3c656480c92b569258a1223d5
-// »¬¶¯´°¿Ú£¬×¢ÒâÖ»ÓĞÒ»¸öÔªËØÇÒÎªkµÄÇé¿ö
+// æ»‘åŠ¨çª—å£ï¼Œæ³¨æ„åªæœ‰ä¸€ä¸ªå…ƒç´ ä¸”ä¸ºkçš„æƒ…å†µ
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,7 +18,7 @@ int main()
     int mx = 0;
     int sum = 0;
     unordered_map<int, int> mp; // <sum, idx>
-    mp[0] = -1; // Ö»ÓĞÒ»¸öÔªËØÇÒÎªk
+    mp[0] = -1; // åªæœ‰ä¸€ä¸ªå…ƒç´ ä¸”ä¸ºk
     for(int i=0; i<nums.size(); i++) {
         sum += nums[i];
         

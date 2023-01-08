@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/binary-gap/
-// 模拟题，记录相邻bit=1位置即可，注意初始位置left的取值。
+// 题解：模拟，记录相邻bit=1位置即可，注意初始位置left的取值。
 class Solution {
 public:
     int binaryGap(int n) {

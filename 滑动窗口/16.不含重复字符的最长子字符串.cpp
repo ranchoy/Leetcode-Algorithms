@@ -1,10 +1,10 @@
 // https://leetcode.cn/problems/wtcaE1/
-// Ìâ½â£º×Öµä + »¬¶¯´°¿Ú
+// é¢˜è§£ï¼šå­—å…¸ + æ»‘åŠ¨çª—å£
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         int res = 0;
-        int char_cnt[210]; // Í³¼ÆÔÚÏÂ±êiÖ®Ç°£¬×Ö·û³öÏÖµÄ´ÎÊı
+        int char_cnt[210]; // ç»Ÿè®¡åœ¨ä¸‹æ ‡iä¹‹å‰ï¼Œå­—ç¬¦å‡ºç°çš„æ¬¡æ•°
         memset(char_cnt, 0, sizeof(char_cnt));
         int left = 0;
         for(int i=0; i<s.size(); i++) {
@@ -12,7 +12,7 @@ public:
             char_cnt[ch] += 1;
 
             while(char_cnt[ch] > 1) {
-                char_cnt[s[left]] -= 1; // ÖØÒª£¬É¾³ı²»ÔÚ[left,i]Çø¼äµÄ×Ö·ûÍ³¼Æ
+                char_cnt[s[left]] -= 1; // é‡è¦ï¼Œåˆ é™¤ä¸åœ¨[left,i]åŒºé—´çš„å­—ç¬¦ç»Ÿè®¡
                 left += 1;
             }
 

@@ -1,5 +1,5 @@
 // https://leetcode.cn/problems/minimum-size-subarray-sum/
-// Ìâ½â£º»¬¶¯´°¿Ú£¬Êä³ö³¤¶È×îĞ¡Á¬Ğø×ÓÊı×é£¬³¤¶È»òÕß×ÓÊı×é
+// é¢˜è§£ï¼šæ»‘åŠ¨çª—å£ï¼Œè¾“å‡ºé•¿åº¦æœ€å°è¿ç»­å­æ•°ç»„ï¼Œé•¿åº¦æˆ–è€…å­æ•°ç»„ã€‚
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
@@ -7,7 +7,7 @@ public:
         int left = 0, right = 0;
         int len, min_len = INT_MAX;
 
-        // map<int, vector<int>> mp; // ²îÖµ-×óÓÒÇø¼ä
+        // map<int, vector<int>> mp; // å·®å€¼-å·¦å³åŒºé—´
 
         int sum = nums[0];
         while(left <= right && right < n) {
@@ -21,11 +21,11 @@ public:
                 sum += nums[right];
             }
     
-            // // ¼ÇÂ¼×óË÷Òı
+            // // è®°å½•å·¦ç´¢å¼•
             // if(sum >= target) mp[right - left + 1].push_back(left);
         }
 
-        // // Êä³ö×îĞ¡Çø¼ä
+        // // è¾“å‡ºæœ€å°åŒºé—´
         // vector<int> vt = mp[min_len];
         // for(int i=0; i<vt.size(); i++)
         //     cout << vt[i] << endl;

@@ -1,6 +1,6 @@
 // https://leetcode.cn/problems/jump-game-ii/
-// ��⣺̰�ģ�����Ҫ�������һ��Ԫ�أ���Ϊ�п��ܻ�����һ����Ծ������
-// ÿ����Ծ��ѡ��������������Ծ�㣬max(max_idx, i+nums[i])��
+// 题解：贪心，不需要访问最后一个元素，因为有可能会增加一次跳跃次数。
+// 每次跳跃，选择区间内最大的跳跃点，max(max_idx, i+nums[i])。
 class Solution {
 public:
     int jump(vector<int> &nums) {
