@@ -1,36 +1,32 @@
-// https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
-// DFS递归，一个是找相同根节点，一个是根据已知根节点判断是否是子结构。
-// 默认p1是母树，p2是子树。
+// https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/
+// 题解：层次遍历，按照A树节点遍历，找到即停止。
+class Solution {
+public:
+    bool isSubStructure(TreeNode *A, TreeNode *B) {
+        if(A == nullptr || B == nullptr) return false;
+        return dfs(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
+    }
+
+    bool dfs(TreeNode *A, TreeNode *B) {
+        if(B == nullptr) return true;
+        if(A == nullptr || A->val != B->val) return false;
+        return dfs(A->left, B->left) && dfs(A->right, B->right);
+    }
+};
+
+/*
+[4,2,3,4,5,6,7,8,9]
+[4,8,9]
+
+true
+*/
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode(int x): val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
-public:
-    bool isSubStructure(TreeNode *p1, TreeNode *p2) {
-        if(p1 == nullptr || p2 == nullptr) {
-            return false;
-        }
-        return dfs(p1, p2) || isSubStructure(p1->left, p2) || isSubStructure(p1->right, p2);
-    }
-
-    bool dfs(TreeNode *p1, TreeNode *p2) {
-        if(p2 == nullptr) return true;
-        if(p1 == nullptr) return false;
-        if(p1->val != p2->val) return false;
-
-        return dfs(p1->left, p2->left) && dfs(p1->right, p2->right);
-    }
-};
-
-/*
-[1,2,3,4]
-[3]
-
-true
-*/
