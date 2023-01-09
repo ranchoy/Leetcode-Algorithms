@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
-// 快排算法，选择基准，区间[left,right]排序，从右区间找到比base小的，从左区间找到比base大的，再互换。
+// 题解：快排算法，选择基准，区间[left,right]排序，从右区间找到比base小的，从左区间找到比base大的，再互换。
 class Solution {
 public:
     int findKthLargest(vector<int> &nums, int k) {
