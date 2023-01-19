@@ -2,8 +2,8 @@
 // 题解：HashMap的使用，注意Map.Entry<K,V>的遍历方式。
 class Solution {
     public int[] findingUsersActiveMinutes(int[][] logs, int k) {
-
         int n = logs.length;
+        int[] ans = new int[k];
         Map<Integer, Set<Integer>> map_list = new HashMap<Integer, Set<Integer>>();
 
         for(int[] log : logs) {
@@ -11,8 +11,7 @@ class Solution {
             map_list.putIfAbsent(id, new HashSet<Integer>());
             map_list.get(id).add(time);
         }
-
-        int[] ans = new int[k];
+        
         for(Set<Integer> times : map_list.values()) {
             ans[times.size() - 1] ++;
         }
