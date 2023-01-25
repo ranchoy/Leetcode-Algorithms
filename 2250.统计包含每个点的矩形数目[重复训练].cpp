@@ -7,13 +7,12 @@ public:
         int n = rectangles.size(), m = points.size();
         vector<int> res(m, 0), idx_arr, x_arr;
 
-        // sort desc by height
         sort(rectangles.begin(), rectangles.end(), [&](auto &a, auto &b) {
-            return a[1] > b[1];
+            return a[1] > b[1]; // 按照纵坐标由大到小排序
         });
         for(int i = 0; i < m; i++) idx_arr.push_back(i);
         sort(idx_arr.begin(), idx_arr.end(), [&](int a, int b) {
-            return points[a][1] > points[b][1];
+            return points[a][1] > points[b][1]; // 按照纵坐标由大到小排序
         });
 
         for(int i = 0, k = 0, flag; i < m; i++) {
