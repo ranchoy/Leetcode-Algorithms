@@ -12,14 +12,10 @@ class Solution {
 
         int t1 = 0, t2 = 0;
         for(int i = 0; i < n; i++) {
-            if(i % 2 == 1) {
-                if(t1 + (s2 - t2) == t2 + (s1 - t1 - nums[i])) {
-                    ans++;
-                }
-            } else {
-                if(t1 + (s2 - t2 - nums[i]) == t2 + (s1 - t1)) {
-                    ans++;
-                }
+            if (i % 2 == 1 && t1 + s2 - t2 == t2 + s1 - t1 - nums[i]) {
+                ans++;
+            } else if (i % 2 == 0 && t1 + s2 - t2 - nums[i] == t2 + s1 - t1) {
+                ans++;
             }
             t1 += (i % 2 == 1) ? nums[i] : 0;
             t2 += (i % 2 == 0) ? nums[i] : 0;
