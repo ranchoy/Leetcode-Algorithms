@@ -9,7 +9,7 @@ class Solution {
 
         dist[0][0] = dist[1][0] = 0; // important!
         for(int i = 0; i < 2; i++) {
-            for(int j = 0; j < n; j++) next[i][j] = new ArrayList<Integer>(); // init
+            for(int j = 0; j < n; j++) next[i][j] = new ArrayList<>(); // init
             for(int j = 1; j < n; j++) dist[i][j] = Integer.MAX_VALUE;
         }
         for(int[] edge : redEdges) next[0][edge[0]].add(edge[1]);
