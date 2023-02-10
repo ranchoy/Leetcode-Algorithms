@@ -1,12 +1,11 @@
 import java.util.*;
-
 // https://leetcode.cn/problems/n-queens/
 // 题解：深度优先遍历DFS，按照行数i依次放置皇后在j=col_arr[i]处，列vis[j]、斜角diag1[i+j+n-1]和反斜角diag2[i+j]不重复。
 class Solution {
-    int[] col_arr;
-    List<List<String>> ans;
-    boolean[] vis, diag1, diag2;
 
+    private int[] col_arr;
+    private List<List<String>> ans;
+    private boolean[] vis, diag1, diag2;
     public List<List<String>> solveNQueens(int n) {
         this.col_arr = new int[n]; // col_arr[i]=j，第i行j列放置皇后。
         this.vis = new boolean[n]; // 第j列是否被放置皇后。
