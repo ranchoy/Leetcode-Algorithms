@@ -11,7 +11,6 @@ class Solution {
         for(int i = 1; i <= n; i++) {
             dp[i] = dp[i-1] + (hours[i-1] > 8 ? 1 : -1);
             if(dp[stk.peek()] > dp[i]) {
-                System.out.println(i + " " + dp[i]);
                 stk.push(i); // 单调栈，记录下坡顶点。
             }
         }
