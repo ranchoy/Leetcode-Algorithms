@@ -15,9 +15,10 @@ class Solution {
             }
         }
 
+        // j < stk.pop()时，负值不更新。并且此时dp[stk.pop()]小于0，表明区间[j,stk.pop()]不满足题目要求。
         for(int j = n; j >= 1; j--) {
             while(!stk.isEmpty() && dp[j] > dp[stk.peek()]) {
-                ans = Math.max(ans, j - stk.pop()); // j < stk.pop()时，负值不更新。
+                ans = Math.max(ans, j - stk.pop());
             }
         }
 
