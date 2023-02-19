@@ -6,8 +6,10 @@ class Solution {
         double ans = 0;
         int n = classes.length;
         PriorityQueue<int[]> pri_que = new PriorityQueue<>((a, b) -> {
-            long x = (long) b[1] * (b[1] + 1) * (a[1] - a[0]); // (long) important!!!
-            long y = (long) a[1] * (a[1] + 1) * (b[1] - b[0]);
+            // long x = (long) b[1] * (b[1] + 1) * (a[1] - a[0]); // (long) important!!!
+            // long y = (long) a[1] * (a[1] + 1) * (b[1] - b[0]);
+            double x = 1.0 * (a[0] + 1) / (a[1] + 1) - 1.0 * a[0] / a[1];
+            double y = 1.0 * (b[0] + 1) / (b[1] + 1) - 1.0 * b[0] / b[1];
             if(x == y) return 0;
             return (x < y) ? 1 : -1;
         });
@@ -28,8 +30,14 @@ class Solution {
 }
 
 /*
+[[1,2],[3,5],[2,2]]
+2
+[[2,4],[3,9],[4,5],[2,10]]
+4
 [[511,910],[289,691],[4,279],[87,843],[415,788]]
 61437
 
+0.78333
+0.53485
 0.96707
 */
