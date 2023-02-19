@@ -6,10 +6,10 @@ class Solution {
         double ans = 0;
         int n = classes.length;
         PriorityQueue<int[]> pri_que = new PriorityQueue<>((a, b) -> {
-            long x = b[1] * (b[1] + 1) * (a[1] - a[0]);
-            long y = a[1] * (a[1] + 1) * (b[1] - b[0]);
+            long x = (long) b[1] * (b[1] + 1) * (a[1] - a[0]); // (long) important!!!
+            long y = (long) a[1] * (a[1] + 1) * (b[1] - b[0]);
             if(x == y) return 0;
-            return (x > y) ? -1 : 1;
+            return (x < y) ? 1 : -1;
         });
 
         for(var item : classes) pri_que.offer(item); // insert
@@ -26,3 +26,10 @@ class Solution {
         return ans / n;
     }
 }
+
+/*
+[[511,910],[289,691],[4,279],[87,843],[415,788]]
+61437
+
+0.96707
+*/
