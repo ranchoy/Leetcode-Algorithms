@@ -13,13 +13,13 @@ public:
             p_sum[i+1] = p_sum[i] + nums[i];
         }
         for(int i = 1; i <= n; i++) {
-            dp[i][1] = p_sum[i] / i; // dp[i][1] = sum{0,i-1}/i;
+            dp[i][1] = p_sum[i] / i; // j=1, dp[i][1] = sum{0,i-1}/i;
         }
 
         for(int j = 2; j <= k; j++) {
             for(int i = j; i <= n; i++) {
                 for(int x = j-1; x <= i-1; x++) {
-                    dp[i][j] = max(dp[i][j], dp[x][j-1] + (p_sum[i] - p_sum[x]) / (i - x));
+                    dp[i][j] = max(dp[i][j], dp[x][j-1] + (p_sum[i] - p_sum[x]) / (i - x)); // j>1
                 }
             }
         }
