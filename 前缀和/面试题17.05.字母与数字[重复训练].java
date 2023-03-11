@@ -30,8 +30,8 @@ class Solution {
     }
 
     public boolean is_alpha(String s) {
-        char ci = s.charAt(0);
-        if(Character.isUpperCase(ci) || Character.isLowerCase(ci)) {
+        char c = s.charAt(0);
+        if(Character.isUpperCase(c) || Character.isLowerCase(c)) {
             return true;
         }
         return false;
