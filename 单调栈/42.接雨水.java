@@ -7,7 +7,7 @@ class Solution {
 
         for(int i = 0; i < n; i++) {
             while(!stk.isEmpty() && height[stk.peek()] < height[i]) {
-                int idx = stk.pop();
+                int idx = stk.pop(); // 当前最低点
                 while(!stk.isEmpty() && height[stk.peek()] == height[idx]) {
                     stk.pop(); // 21112
                 }
